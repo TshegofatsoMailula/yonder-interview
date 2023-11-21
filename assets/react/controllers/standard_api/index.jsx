@@ -8,7 +8,8 @@ let Index=(prop)=>
 {
     let [standardApi,setStandardApi] = useState(({
         link: prop.link,
-        method: prop.method
+        method: prop.method,
+        headers: prop.headers
     }));
     useEffect(()=>{
         let data = {"auth_name":"","auth_code":"","person":{"name":"tshego","surname":"mailula"}};

@@ -49,7 +49,7 @@ class ApiIntergrationController extends AbstractController
         
         $link = "http://yomo.sparks.com/find-person-by-name";
         $method = "POST";
-
+        $headers = "Content-type : application/json";
         return $this->render('pages/standard_api.html.twig', [
             'meta_data'=>$meta_data,
             'no_index' => $no_index,
@@ -57,7 +57,8 @@ class ApiIntergrationController extends AbstractController
             'img_url'=>$img_url,
             'og_img_url'=>$og_img_url,
             'link'=>$link,
-            'method'=>$method
+            'method'=>$method,
+            'headers'=>$headers
         ]);
     }
     #[Route('/find-person-by-name', name: 'app_standard_api')]

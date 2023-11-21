@@ -4,6 +4,7 @@
 {% block main %}
 <div {{react_component('standard_api/index',{
     link: link,
-    method: method
+    method: method,
+    headers: headers
 })}}></div>
 {% endblock %}
