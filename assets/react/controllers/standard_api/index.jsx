@@ -3,6 +3,7 @@ import StandardApiActiveState from "./standardApiActiveState";
 import EndPointField from "./component/endpoint_field";
 import axios from "axios";
 import Authentication from "./component/authentication";
+import Parameters from "./component/parameters";
 let Index=(prop)=>
 {
     let [standardApi,setStandardApi] = useState(({
@@ -24,6 +25,7 @@ let Index=(prop)=>
         </div>
         <div className="bg-gray-300 p-6 my-6">
             <Authentication standardApi={standardApi} setStandardApi={setStandardApi}/>
+            <Parameters standardApi={standardApi} setStandardApi={setStandardApi}/>
         </div>
     </div>)
 }
