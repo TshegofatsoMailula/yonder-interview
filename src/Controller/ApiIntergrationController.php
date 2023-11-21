@@ -47,7 +47,7 @@ class ApiIntergrationController extends AbstractController
         $img_url = "#";
         $og_img_url = "#";
         
-        $link = "http://yomo.sparks.com/access-yomo-dashboard";
+        $link = "http://yonder.tshegomailula.com/access-yomo-dashboard";
         $method = "POST";
         $headers = "Content-type : application/json";
         return $this->render('pages/standard_api.html.twig', [

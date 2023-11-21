@@ -12,7 +12,7 @@ let Index=(prop)=>
         link: prop.link,
         method: prop.method,
         headers: prop.headers,
-        account_status: false,
+        account_status: true,
         fields:[{
             name: "Authorization name",
             parameter: "auth_name",
