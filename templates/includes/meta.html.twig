@@ -1,0 +1,47 @@
+{% set title = meta_data.metaTitle|default(meta_data.title) %}
+{% set twitterTitle = meta_data.twitterTitle %}
+{% set twitterDescription = meta_data.twitterDescription %}
+{% set twitterImage = img_url | default('') %}
+{% set twitterUrl = meta_data.twitterUrl %}
+
+{% set meta_image = img_url | default('') %}
+{% set meta_description = meta_data.metaDescription %}
+{#{% set keywords = meta_data.keywords %}#}
+
+{% set ogUrl = "#" %}
+{% set ogTitle = meta_data.title %}
+{% set ogImage = og_img_url | default('') %}
+{% set ogDescription = meta_data.metaDescription %}
+{% set noIndex = meta_data.noIndex|default(0) %}
+
+<title>{{title}}</title>
+
+<meta property="og:url" content="{{ ogUrl|default(canonical) }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="{{ogTitle}}"/>
+<meta property="og:description" content="{{ogDescription}}"/>
+<meta property="og:image" content="{{ ogImage }}"/>
+<meta property="og:image:width" content="500"/>
+<meta property="og:image:height" content="500"/>
+<meta property="fb:app_id" content="#"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="#"/>
+<meta name="twitter:title" content="{{ twitterTitle|default(title)}}"/>
+<meta name="twitter:description" content="{{twitterDescription|default(meta_description) }}"/>
+<meta name="twitter:image" content="{{twitterImage|default(meta_image)}}"/>
+<meta name="twitter:url" content="{{twitterUrl|default(canonical)}}"/>
+
+<meta name="description" content="{{meta_description}}"/>
+<meta name="keywords" content="Hospital"/>
+<meta itemprop="description" content="{{meta_description}}"/>
+<meta itemprop="image" content="{{meta_image}}"/>
+<link rel="image_src" href="{{ meta_image }}"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<meta name="author" content="Tebogo Health"/>
+<meta name="publish_date" property="og:publish_date" content="{{"now"|date("Y-m-d")}}">
+
+{% if noIndex %}
+    <meta name="robots" content="noindex, nofollow"/>
+{% endif %}

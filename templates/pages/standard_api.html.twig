@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block main %}
+<div {{react_component('standard_api/index',{
+    link: link,
+    method: method
+})}}></div>
+{% endblock %}

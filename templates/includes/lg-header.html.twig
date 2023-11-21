@@ -1,0 +1,29 @@
+{% set links = [{
+    link: "",
+    title: "Home"
+},{
+    link: "/our-standard-api",
+    title: "Our Standard API"
+},{
+    link: "/api-intergrations",
+    title: "API Intergrations"
+},{
+    link: "/documentation",
+    title: "Documentation"
+},{
+    link: "",
+    title: "Sandbox"
+}]%}
+<!--desktop screen header include -->
+<header class=" bg-white hidden w-full lg:flex flex-wrap items-center justify-between py-2">
+	<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
+				<ul class="list-reset lg:flex list-none justify-end flex-1 items-center">
+				{% for link in links %}
+                {{include('components/lg-nav-link.html.twig',{
+                    link: link.link,
+                    title: link.title
+                })}}
+                {% endfor %}
+				</ul>
+</div>
+</header>
