@@ -4,12 +4,35 @@ import EndPointField from "./component/endpoint_field";
 import axios from "axios";
 import Authentication from "./component/authentication";
 import Parameters from "./component/parameters";
+import Response from "./component/response";
+import Fields from "./component/fields";
 let Index=(prop)=>
 {
     let [standardApi,setStandardApi] = useState(({
         link: prop.link,
         method: prop.method,
-        headers: prop.headers
+        headers: prop.headers,
+        fields:[{
+            name: "Authorization name",
+            parameter: "auth_name",
+            definition: "",
+            required: "yes"
+        },{
+            name: "Authorization code",
+            parameter: "auth_code",
+            definition: "",
+            required: "yes"
+        },{
+            name: "Name",
+            parameter: "name",
+            definition: "",
+            required: "yes"
+        },{
+            name: "Surname",
+            parameter: "surname",
+            definition: "",
+            required: "no"
+        }]
     }));
     useEffect(()=>{
         let data = {"auth_name":"","auth_code":"","person":{"name":"tshego","surname":"mailula"}};
@@ -25,8 +48,12 @@ let Index=(prop)=>
            <EndPointField standardApi={standardApi} setStandardApi={setStandardApi}/>
         </div>
         <div className="bg-gray-300 p-6 my-6">
+            <Fields standardApi={standardApi} setStandardApi={setStandardApi}/>
+        </div>
+        <div className="bg-gray-300 p-6 my-6">
             <Authentication standardApi={standardApi} setStandardApi={setStandardApi}/>
             <Parameters standardApi={standardApi} setStandardApi={setStandardApi}/>
+            <Response standardApi={standardApi} setStandardApi={setStandardApi}/>
         </div>
     </div>)
 }
