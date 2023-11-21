@@ -21,14 +21,14 @@ let ApiTabs=({apiIntergration,setApiIntergration})=>
         return ApiIntergrationActiveState({apiIntergration,setApiIntergration,field,fieldValue});
     }
     return(<div className="bg-gray-300 p-6">
-        <div className="grid grid-cols-3 gap-6">
-            <div className="border font-bold hover:text-white p-6 hover:bg-gray-600 hover:cursor-pointer text-center border-black" onClick={handleWebTab}>
+        <div className="lg:grid grid-cols-3 gap-6">
+            <div className="border my-4 font-bold hover:text-white p-6 hover:bg-gray-600 hover:cursor-pointer text-center border-black" onClick={handleWebTab}>
                 <span>Web</span>
             </div>
-            <div className="border font-bold hover:text-white p-6 hover:bg-gray-600 hover:cursor-pointer text-center border-black"  onClick={handleUSSDTab}>
+            <div className="border my-4 font-bold hover:text-white p-6 hover:bg-gray-600 hover:cursor-pointer text-center border-black"  onClick={handleUSSDTab}>
                 <span>USSD</span>
             </div>
-            <div className="border p-6 hover:text-white font-bold hover:bg-gray-600 hover:cursor-pointer text-center border-black"  onClick={handleWhatsappTab}>
+            <div className="border p-6 my-4 hover:text-white font-bold hover:bg-gray-600 hover:cursor-pointer text-center border-black"  onClick={handleWhatsappTab}>
                 <span>Whatsapp</span>
             </div>
         </div>
