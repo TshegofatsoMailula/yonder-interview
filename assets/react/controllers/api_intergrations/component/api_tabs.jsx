@@ -1,24 +1,24 @@
 import React from "react";
 import ApiIntergrationActiveState from "../apiIntergrationActiveState";
-let ApiTabs=({apiIntergation,setApiIntergration})=>
+let ApiTabs=({apiIntergration,setApiIntergration})=>
 {
     let handleWebTab=()=>
     {
         let field = "change_tab";
         let fieldValue = "web_api";
-        return ApiIntergrationActiveState({apiIntergation,setApiIntergration,field,fieldValue});
+        return ApiIntergrationActiveState({apiIntergration,setApiIntergration,field,fieldValue});
     }
     let handleUSSDTab=()=>
     {
         let field = "change_tab";
         let fieldValue = "ussd_api";
-        return ApiIntergrationActiveState({apiIntergation,setApiIntergration,field,fieldValue});
+        return ApiIntergrationActiveState({apiIntergration,setApiIntergration,field,fieldValue});
     }
     let handleWhatsappTab=()=>
     {
         let field = "change_tab";
         let fieldValue = "whatsapp_api";
-        return ApiIntergrationActiveState({apiIntergation,setApiIntergration,field,fieldValue});
+        return ApiIntergrationActiveState({apiIntergration,setApiIntergration,field,fieldValue});
     }
     return(<div className="bg-gray-300 p-6">
         <div className="grid grid-cols-3 gap-6">
