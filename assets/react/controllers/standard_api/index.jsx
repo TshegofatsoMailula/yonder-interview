@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from "react";
-import StandardApiActiveState from "./standardApiActiveState";
 import EndPointField from "./component/endpoint_field";
 import axios from "axios";
 import Authentication from "./component/authentication";
 import Parameters from "./component/parameters";
 import Response from "./component/response";
-import Fields from "./component/fields";
+import Fields from "./component/lg_fields";
+import SmFields from "./component/sm_fields";
 let Index=(prop)=>
 {
     let [standardApi,setStandardApi] = useState(({
@@ -48,8 +48,13 @@ let Index=(prop)=>
         <div>
            <EndPointField standardApi={standardApi} setStandardApi={setStandardApi}/>
         </div>
-        <div className="bg-gray-300 p-6 my-6">
+        <div className="lg:bg-gray-300 p-6 my-6">
+            <div className="hidden lg:block">
             <Fields standardApi={standardApi} setStandardApi={setStandardApi}/>
+            </div>
+            <div className="block lg:hidden">
+            <SmFields standardApi={standardApi} setStandardApi={setStandardApi}/>
+            </div>
         </div>
         <div className="bg-gray-300 p-6 my-6">
             <Authentication standardApi={standardApi} setStandardApi={setStandardApi}/>
