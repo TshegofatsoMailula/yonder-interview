@@ -6,7 +6,8 @@ let StandardApiActiveState=({standardApi,setStandardApi,field,fieldValue})=>
         link: (field==="link"?fieldValue:standardApi.link),
         method: (field==="method"?fieldValue:standardApi.method),
         headers: (field==="headers"?fieldValue:standardApi.headers),
-        fields: standardApi.fields
+        fields: standardApi.fields,
+        account_status: standardApi.account_status
     }));
 }
 export default StandardApiActiveState;

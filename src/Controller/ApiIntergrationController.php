@@ -47,7 +47,7 @@ class ApiIntergrationController extends AbstractController
         $img_url = "#";
         $og_img_url = "#";
         
-        $link = "http://yomo.sparks.com/find-person-by-name";
+        $link = "http://yomo.sparks.com/access-yomo-dashboard";
         $method = "POST";
         $headers = "Content-type : application/json";
         return $this->render('pages/standard_api.html.twig', [
@@ -61,15 +61,34 @@ class ApiIntergrationController extends AbstractController
             'headers'=>$headers
         ]);
     }
-    #[Route('/find-person-by-name', name: 'app_standard_api')]
+    #[Route('/access-yomo-dashboard', name: 'app_standard_api')]
     public function standard_api(Request $request): Response
     {
         $data = json_decode($request->getContent(),true);
-        $person = $data["person"];
-        $name = $person["name"]??"";
-       return new JsonResponse([
-        "link"=>"hello world",
-        "name"=>$name
-       ]);
+        
+        if(!$data)
+        {
+            return new JsonResponse([
+                "status"=>"400",
+                "statusText"=>"Bad Request"
+            ]);
+        }
+
+        $auth_name = $data["auth_name"];
+        $auth_code = $data["auth_code"];
+        $account_status = $data["account_status"];
+        if($auth_name !== 'Test User' || $auth_code !== 'Azwyx' || !$account_status)
+        {
+            return new JsonResponse([
+                "status"=>"401",
+                "statusText"=>"Unauthorized"
+            ]);
+        }
+
+        return new JsonResponse([
+            "status"=>"200",
+            "statusText"=>"OK",
+            "data"=>["name"=>"Tshego","surname"=>"Mailula"]
+        ]);
     }
 }

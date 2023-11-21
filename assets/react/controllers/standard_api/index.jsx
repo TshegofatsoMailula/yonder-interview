@@ -12,6 +12,7 @@ let Index=(prop)=>
         link: prop.link,
         method: prop.method,
         headers: prop.headers,
+        account_status: false,
         fields:[{
             name: "Authorization name",
             parameter: "auth_name",
@@ -35,9 +36,9 @@ let Index=(prop)=>
         }]
     }));
     useEffect(()=>{
-        let data = {"auth_name":"","auth_code":"","person":{"name":"tshego","surname":"mailula"}};
+        let data = {"account_status":standardApi.account_status,"auth_name":"Test User","auth_code":"Azwyx","person":{"name":"tshego","surname":"mailula"}};
         let headers = {headers:{'Content-type':'application/json'}};
-        axios.post('/find-person-by-name',data,headers)
+        axios.post('/access-yomo-dashboard',data,headers)
         .then(response=>{
             console.log(response);
         })
